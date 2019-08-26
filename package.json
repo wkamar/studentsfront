@@ -15,7 +15,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:3003/",
+  "homepage": "https://wkamar.github.io",
   "eslintConfig": {
     "extends": "react-app"
   },
