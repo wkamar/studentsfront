@@ -19,7 +19,7 @@ class Profilepage extends Component {
   }
 
   renderRedirect = () => {
-    return <Redirect to='/login' />
+    return <Redirect to='/studentsfront/login' />
   }
 
   componentDidMount() {

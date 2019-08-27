@@ -18,7 +18,7 @@ const homemess = () => {
   return (
     <div>
       <h3>
-        No match found
+        Main 
       </h3>
     </div>
   );
@@ -33,10 +33,10 @@ class App extends Component {
           {/* <Login></Login> */}
           {/* <Route exact path="/" Component={homemess}></Route> */}
           <Switch>
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/register" component={RegisterNew} />
-            <Route exact path="/profile" component={ProfilePage} />
-            <Route exact path="/" component={homemess} />
+            <Route exact path="/studentsfront/login" component={Login} />
+            <Route exact path="/studentsfront/register" component={RegisterNew} />
+            <Route exact path="/studentsfront/profile" component={ProfilePage} />
+            <Route exact path="/studentsfront/" component={homemess} />
           </Switch>
         </div>
       </BrowserRouter>
