@@ -7,6 +7,10 @@ import Login from './Login';
 import axios from 'axios';
 import backurl from '../glob';
 
+import "./regstyle.css";
+import "./bootstrap.css";
+
+
 class RegNewForm extends Component {
     constructor(props) {
         super(props)

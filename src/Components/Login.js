@@ -7,6 +7,9 @@ import axios from 'axios';
 import backurl from '../glob';
 import { async } from 'q';
 
+import "./loginstyle.css";
+import "./font-awesome.min.css";
+
 
 class Login extends Component {
     constructor(props) {
