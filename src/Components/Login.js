@@ -125,14 +125,13 @@ class Login extends Component {
                                 </div>
                             </form>
                             {/* ///////////////////////////////////// */}
+                            <br />
                             <div className="w3layouts_more-buttn">
                                 <button type="submit" className="btn btn-lg" id="btnloginwithfacebook" onClick={this.btnloginwithfacebookClicked}>Login with Facebook</button>
-                                {/* <FacebookLogin appId="3168317616542352" autoLoad={false} fields="name, email" callback={this.responseFacebook}></FacebookLogin> */}
                             </div>
                             <br />
                             <div className="w3layouts_more-buttn">
                                 <button type="submit" className="btn btn-lg" id="btnloginwithgoogle" onClick={this.btnloginwithgoogleClicked}>Login with Google</button>
-                                {/* <GoogleLogin clientId="669717209161-bhchko2edea6if0i6gv3ol2g5hveu2tb.apps.googleusercontent.com" buttonText="LOGIN WITH GOOGLE" onSuccess={this.responseGoogle} onFailure={this.responseGoogle}></GoogleLogin> */}
                             </div>
                             {/* ///////////////////////////////////// */}
 

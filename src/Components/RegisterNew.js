@@ -127,19 +127,6 @@ class RegNewForm extends Component {
         return (true);
     }
     
-    async fetchRandomData() {
-
-        var resp = await fetch("http://localhost:3003/userslist");
-        var data = await resp.json();
-
-        console.log(data);
-
-        document.getElementById("firstname").value = data.results[0].name.first;
-        document.getElementById("lastname").value = data.results[0].name.last;
-    }
-
-
-
     render() {
         const { firstname, lastname, inputEmail, Phone, inputPassword, inputPasswordConfirm, hire } = this.state;
         return (

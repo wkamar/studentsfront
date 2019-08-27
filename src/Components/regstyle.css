@@ -253,7 +253,7 @@ h1.title {
 	padding: 0.5em 0;
 	color: #fff;
 	background: rgba(0, 0, 0, 0.4);
-	text-transform: uppercase;
+	text-transform: initial;
 }
 
 label.control-label {
@@ -262,7 +262,7 @@ label.control-label {
 	font-style: italic;
 	font-size: 0.9em;
 	letter-spacing: 1px;
-	text-transform: uppercase;
+	text-transform: initial;
 }
 
 form-group.field {
@@ -381,7 +381,7 @@ label.w3layouts {
 	-moz-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
 	-ms-transition: all 0.5s ease-in-out;
-	text-transform: uppercase;
+	text-transform: initial;
 }
 
 .btn.disabled,
