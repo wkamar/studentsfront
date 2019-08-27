@@ -39,6 +39,11 @@ class Login extends Component {
         this.setState({ reqRegister: true });
     }
 
+    btnLoginClicked = () => {
+        //ReactDOM.render(<RegisterNew />, document.getElementById('root'));
+        this.setState({ reqRegister: true });
+    }
+
     // btnloginwithfacebookClicked = async () => {
     //     console.log(backurl + "/auth/facebook");
     //     axios.get(backurl + "/auth/facebook").then(Response => {
@@ -156,7 +161,7 @@ class Login extends Component {
 
         return (
             <div>
-                {(this.state.reqRegister) ? <Redirect to='/studentsfront/RegisterNew' /> : this.renderAll()}
+                {(this.state.reqRegister) ? <Redirect to='/studentsfront/register' /> : this.renderAll()}
             </div>
 
 

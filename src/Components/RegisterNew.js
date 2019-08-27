@@ -172,7 +172,7 @@ class RegNewForm extends Component {
                             <div className="form-inline row">
                                 <div className="form-group col-sm-6 agileits-w3layouts">
                                     <input type="password" data-minlength={6} className="form-control" id="inputPassword" value={inputPassword} onChange={this.changeHandler} placeholder="Password" required />
-                                    <div className="help-block">Minimum of 6 characters</div>
+                                    <div className="help-block">Min of 6 characters</div>
                                 </div>
                                 <div className="form-group col-sm-6 w3-agile">
                                     <input type="password" className="form-control" id="inputPasswordConfirm" value={inputPasswordConfirm} onChange={this.changeHandler} data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm Password" required />
