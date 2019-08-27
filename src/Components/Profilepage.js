@@ -4,7 +4,10 @@ import { Redirect } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 
 import axios from 'axios';
-import { async } from 'q';
+
+import "./profile.css";
+import "./bootstrap.css";
+
 
 class Profilepage extends Component {
   constructor(props) {
