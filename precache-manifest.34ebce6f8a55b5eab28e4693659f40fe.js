@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "76aac4a504a4d2cfaf47f721a1a0f84a",
+    "revision": "d859199e428d0087f70ceb11f6256ec3",
     "url": "/studentsfront/index.html"
   },
   {
-    "revision": "d59f10352ed148c08397",
+    "revision": "b47bfc66fa9e153ca8f6",
     "url": "/studentsfront/static/css/main.7ed700e9.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/studentsfront/static/js/2.94d7e494.chunk.js"
   },
   {
-    "revision": "d59f10352ed148c08397",
-    "url": "/studentsfront/static/js/main.5f84392e.chunk.js"
+    "revision": "b47bfc66fa9e153ca8f6",
+    "url": "/studentsfront/static/js/main.efc0ba31.chunk.js"
   },
   {
     "revision": "a1d44e80b27b08202445",
