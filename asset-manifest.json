@@ -1,16 +1,19 @@
 {
   "files": {
-    "main.css": "/studentsfront/static/css/main.6dde7a6e.chunk.css",
-    "main.js": "/studentsfront/static/js/main.ba2835fe.chunk.js",
-    "main.js.map": "/studentsfront/static/js/main.ba2835fe.chunk.js.map",
+    "main.css": "/studentsfront/static/css/main.a5608b38.chunk.css",
+    "main.js": "/studentsfront/static/js/main.f7b88ae6.chunk.js",
+    "main.js.map": "/studentsfront/static/js/main.f7b88ae6.chunk.js.map",
     "runtime~main.js": "/studentsfront/static/js/runtime~main.ef75aed8.js",
     "runtime~main.js.map": "/studentsfront/static/js/runtime~main.ef75aed8.js.map",
-    "static/js/2.1ff4f0cf.chunk.js": "/studentsfront/static/js/2.1ff4f0cf.chunk.js",
-    "static/js/2.1ff4f0cf.chunk.js.map": "/studentsfront/static/js/2.1ff4f0cf.chunk.js.map",
+    "static/js/2.e5992fe6.chunk.js": "/studentsfront/static/js/2.e5992fe6.chunk.js",
+    "static/js/2.e5992fe6.chunk.js.map": "/studentsfront/static/js/2.e5992fe6.chunk.js.map",
     "index.html": "/studentsfront/index.html",
-    "precache-manifest.39eb4140d960b55325f41433d6e6605c.js": "/studentsfront/precache-manifest.39eb4140d960b55325f41433d6e6605c.js",
+    "precache-manifest.8932dd559c2a71610cc906b3326c4d2f.js": "/studentsfront/precache-manifest.8932dd559c2a71610cc906b3326c4d2f.js",
     "service-worker.js": "/studentsfront/service-worker.js",
-    "static/css/main.6dde7a6e.chunk.css.map": "/studentsfront/static/css/main.6dde7a6e.chunk.css.map",
+    "static/css/main.a5608b38.chunk.css.map": "/studentsfront/static/css/main.a5608b38.chunk.css.map",
+    "static/media/regstyle.css": "/studentsfront/static/media/content.eeb8dec7.jpg",
+    "static/media/font-awesome.min.css": "/studentsfront/static/media/fontawesome-webfont.fee66e71.woff",
+    "static/media/bootstrap.css": "/studentsfront/static/media/glyphicons-halflings-regular.fa277232.woff",
     "static/media/logo.svg": "/studentsfront/static/media/logo.5d5d9eef.svg"
   }
 }
