@@ -35,8 +35,8 @@ class RegNewForm extends Component {
     submitHandler = (e) => {
         if(this.validData()){
             console.log(this.state);
-            console.log(backurl + "/stdapis/newuser");
-            axios.post(backurl + "/stdapis/newuser", this.state).then(Response =>{
+            console.log("https://students-apis.herokuapp.com/stdapis/newuser");
+            axios.post("https://students-apis.herokuapp.com/stdapis/newuser", this.state).then(Response =>{
                 console.log(Response);
                 if(Response.data.newid>0)
                 {

@@ -75,11 +75,11 @@ class Login extends Component {
     // }
 
     btnloginwithfacebookClicked = () => {
-        window.open("http://localhost:3003/auth/facebook", "_self");
+        window.open("https://students-apis.herokuapp.com/auth/facebook", "_self");
     }
 
     btnloginwithgoogleClicked = () => {
-        window.open("http://localhost:3003/auth/google", "_self");
+        window.open("https://students-apis.herokuapp.com/auth/google", "_self");
     }
 
 
@@ -143,7 +143,7 @@ class Login extends Component {
                     </div>
                 </div>
                 <footer className="copyrigh-wthree">
-                    <p>footer footer footer footer footer footer footer footer footer footer</p>
+                    <p>If you can't explain it simply, you don't understand it well enough.</p>
                 </footer>
             </div>
 

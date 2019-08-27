@@ -24,7 +24,7 @@ class Profilepage extends Component {
 
   componentDidMount() {
     // Fetch does not send cookies. So you should add credentials: 'include'
-    fetch("http://localhost:3003/auth/facebook/success", {
+    fetch("https://students-apis.herokuapp.com/auth/facebook/success", {
       method: "GET",
       credentials: "include",
       headers: {
