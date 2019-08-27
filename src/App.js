@@ -36,7 +36,7 @@ class App extends Component {
             {/* <Route exact path="//https://wkamar.github.io/studentsfront/profile" component={ProfilePage} /> */}
             <Route exact path="/studentsfront/login" component={Login} />
             <Route exact path="/studentsfront/register" component={RegisterNew} />
-            <Route path="/studentsfront/profile" component={ProfilePage} />
+            <Route path="/profile" component={ProfilePage} />
             <Route exact path="/studentsfront/" component={homemess} />
           </Switch>
         </div>
