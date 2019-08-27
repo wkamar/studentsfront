@@ -39,7 +39,8 @@ class Profilepage extends Component {
     //   }
     // })
     var config = {
-      headers: {'Access-Control-Allow-Origin': '*', Accept: "application/json"}
+      credentials: "include",
+      headers: {'Access-Control-Allow-Origin': '*', "Access-Control-Allow-Credentials": true, Accept: "application/json"}
   };
     axios.get("https://students-apis.herokuapp.com/auth/facebook/success", config)    
     ///////////////////////////////////////////////////////////////////////////////////////////////
