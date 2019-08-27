@@ -33,11 +33,12 @@ class App extends Component {
           {/* <Login></Login> */}
           {/* <Route exact path="/" Component={homemess}></Route> */}
           <Switch>
-            <Route exact path="//https://wkamar.github.io/studentsfront/profile" component={ProfilePage} />
-            <Route exact path="/studentsfront/login" component={Login} />
-            <Route exact path="/studentsfront/register" component={RegisterNew} />
-            <Route exact path="/studentsfront/profile" component={ProfilePage} />
-            <Route exact path="/studentsfront/" component={homemess} />
+            {/* <Route exact path="//https://wkamar.github.io/studentsfront/profile" component={ProfilePage} /> */}
+            <Route path="/studentsfront/login" component={Login} />
+            <Route path="/studentsfront/register" component={RegisterNew} />
+            <Route path="/studentsfront/profile" component={ProfilePage} />
+            <Route path="/studentsfront/" component={homemess} />
+            <Route exact path="/" component={homemess} />
           </Switch>
         </div>
       </BrowserRouter>
