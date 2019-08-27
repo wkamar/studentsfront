@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-
+import { Redirect } from 'react-router-dom';
 import RegisterNew from './RegisterNew';
 
 import axios from 'axios';
@@ -12,7 +12,7 @@ class Login extends Component {
     constructor(props) {
         super(props)
 
-        this.state = { isAuthenticated: false, user: null, token: '' };
+        this.state = { reqRegister: false, isAuthenticated: false, user: null, token: '' };
     }
 
     logout = () => {
@@ -21,18 +21,19 @@ class Login extends Component {
 
     responseFacebook = (response) => {
         console.log(response);
-      }
-  
-      responseGoogle = (response) => {
+    }
+
+    responseGoogle = (response) => {
         console.log(response);
-      }
+    }
 
     onFailure = (error) => {
         alert(error);
     }
 
     btnRegisterNewStudentClicked = () => {
-        ReactDOM.render(<RegisterNew />, document.getElementById('root'));
+        //ReactDOM.render(<RegisterNew />, document.getElementById('root'));
+        this.setState({ reqRegister: true });
     }
 
     // btnloginwithfacebookClicked = async () => {
@@ -83,9 +84,7 @@ class Login extends Component {
     }
 
 
-
-    render() {
-
+    renderAll = () => {
         return (
             <div>
                 <h1 className="error">Student Login Form</h1>
@@ -122,7 +121,7 @@ class Login extends Component {
                                 <button type="submit" className="btn btn-lg" id="btnloginwithfacebook" onClick={this.btnloginwithfacebookClicked}>Login with Facebook</button>
                                 {/* <FacebookLogin appId="3168317616542352" autoLoad={false} fields="name, email" callback={this.responseFacebook}></FacebookLogin> */}
                             </div>
-                            <br/>
+                            <br />
                             <div className="w3layouts_more-buttn">
                                 <button type="submit" className="btn btn-lg" id="btnloginwithgoogle" onClick={this.btnloginwithgoogleClicked}>Login with Google</button>
                                 {/* <GoogleLogin clientId="669717209161-bhchko2edea6if0i6gv3ol2g5hveu2tb.apps.googleusercontent.com" buttonText="LOGIN WITH GOOGLE" onSuccess={this.responseGoogle} onFailure={this.responseGoogle}></GoogleLogin> */}
@@ -132,7 +131,7 @@ class Login extends Component {
                             <div className="w3layouts_more-buttn">
                                 <h3>Don't Have an account..? <button type="submit" className="btn btn-lg" id="btnRegisterNewStudent" onClick={this.btnRegisterNewStudentClicked}>Register Here</button> </h3>
                             </div>
-                            
+
 
 
                         </div>
@@ -145,6 +144,16 @@ class Login extends Component {
                 <footer className="copyrigh-wthree">
                     <p>If you can't explain it simply, you don't understand it well enough.</p>
                 </footer>
+            </div>
+        );
+    }
+
+
+    render() {
+
+        return (
+            <div>
+                {(this.state.reqRegister) ? <Redirect to='/studentsfront/RegisterNew' /> : this.renderAll()}
             </div>
 
 

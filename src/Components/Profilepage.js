@@ -35,7 +35,6 @@ class Profilepage extends Component {
     fetch("https://students-apis.herokuapp.com/auth/facebook/success", {
       method: "GET",
       credentials: "include",
-      //mode: 'cors',
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
