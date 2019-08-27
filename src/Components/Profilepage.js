@@ -23,6 +23,8 @@ class Profilepage extends Component {
   }
 
   componentDidMount() {
+    console.log("componentDidMount() {");
+    console.log("https://students-apis.herokuapp.com/auth/facebook/success");
     // Fetch does not send cookies. So you should add credentials: 'include'
     fetch("https://students-apis.herokuapp.com/auth/facebook/success", {
       method: "GET",
@@ -34,6 +36,8 @@ class Profilepage extends Component {
       }
     })
       .then(response => {
+        console.log(".then(response => {");
+        console.log(response);
         if (response.status === 200) return response.json();
         console.log("failed to authenticate user");
         this.setState({ code: 0 });
