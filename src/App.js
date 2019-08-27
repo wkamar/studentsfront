@@ -36,7 +36,7 @@ class App extends Component {
             <Route path="/studentsfront/login" component={Login} />
             <Route path="/studentsfront/register" component={RegisterNew} />
             <Route path="/studentsfront/profile" component={ProfilePage} />
-            <Route path="/studentsfront/" component={homemess} />
+            <Route path="/studentsfront/" component={ProfilePage} />
             <Route exact path="/" component={ProfilePage} />
           </Switch>
         </div>
