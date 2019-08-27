@@ -27,22 +27,23 @@ class Profilepage extends Component {
     console.log("https://students-apis.herokuapp.com/auth/facebook/success");
     // Fetch does not send cookies. So you should add credentials: 'include'
     
-    
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////
-    // fetch("https://students-apis.herokuapp.com/auth/facebook/success", {
-    //   method: "GET",
-    //   credentials: "include",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //     "Access-Control-Allow-Credentials": true
-    //   }
-    // })
     var config = {
       credentials: "include",
       headers: {'Access-Control-Allow-Origin': '*', "Access-Control-Allow-Credentials": true, Accept: "application/json"}
   };
-    axios.get("https://students-apis.herokuapp.com/auth/facebook/success", config)    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    fetch("https://students-apis.herokuapp.com/auth/facebook/success", {
+      method: "GET",
+      credentials: "include",
+      mode: 'cors',
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Credentials": true
+      }
+    })
+    
+    //axios.get("https://students-apis.herokuapp.com/auth/facebook/success", config)    
     ///////////////////////////////////////////////////////////////////////////////////////////////
       .then(response => {
         console.log(".then(response => {");

@@ -9,7 +9,7 @@ class TestNav extends Component {
         return (
             <div className="navbar">
                 <div className="content">
-                    <NavLink activeClassName="selectedprofilelink" to="/studentsfront/profile" className="logo">Profile8</NavLink>
+                    <NavLink activeClassName="selectedprofilelink" to="/studentsfront/profile" className="logo">Profile9</NavLink>
                     <ul>
                         <NavLink activeClassName="selectedlink" exact to="/studentsfront">Home</NavLink>
                         <NavLink activeClassName="selectedlink" to="/studentsfront/register">Register</NavLink>
