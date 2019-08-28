@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import ReactDOM from 'react-dom';
+import { Redirect } from 'react-router-dom';
 
 import Login from './Login';
 
@@ -45,7 +46,8 @@ class RegNewForm extends Component {
                 if(Response.data.newid>0)
                 {
                     alert(Response.data.message);
-                    ReactDOM.render(<Login />, document.getElementById('root'));
+                    //ReactDOM.render(<Login />, document.getElementById('root'));
+                    this.setState({hire: -1});
                 }
                 else{
                     alert(Response.data.message + "\n" + Response.data.errmessage);
@@ -129,6 +131,7 @@ class RegNewForm extends Component {
     
     render() {
         const { firstname, lastname, inputEmail, Phone, inputPassword, inputPasswordConfirm, hire } = this.state;
+        if (hire === -1) return (<Redirect to='/studentsfront/login' />);
         return (
             <div className="content-agileits">
                 <h1 className="title">Student Registration Form</h1>

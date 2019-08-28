@@ -26,61 +26,63 @@ class Login extends Component {
         this.setState({ reqRegister: true });
     }
 
+
+    // btnLoginClicked = () => {
+
+    //     if (this.validData()) {
+    //         console.log("btnLoginClicked = () => { if(this.validData()){");
+    //         axios.post("http://localhost:3003/stdapis/getuserbycred", {
+    //                     inputEmail: document.getElementById("inputEmail").value,
+    //                     inputPassword: document.getElementById("inputPassword").value
+    //             }).then(Response =>{
+    //             console.log(Response);
+    //         }).catch(error => {
+    //             console.log(error);
+    //         });
+
+    //     }
+    // }
+
     btnLoginClicked = async () => {
 
         if (this.validData()) {
-            console.log("btnLoginClicked = () => { if(this.validData()){");
-            try{
-            const response = await axios.get("https://students-apis.herokuapp.com/stdapis/getuserbycred", {
-                    params: {
-                        inputEmail: document.getElementById("inputEmail").value,
-                        inputPassword: document.getElementById("inputPassword").value
-                    }
+            try {
+                const response = await axios.post("https://students-apis.herokuapp.com/stdapis/getuserbycred", {
+                //const response = await axios.post("http://localhost:3003/stdapis/getuserbycred", {
+                    inputEmail: document.getElementById("inputEmail").value,
+                    inputPassword: document.getElementById("inputPassword").value
                 });
                 console.log(response);
-                if (response) {
-                    if (response.code > 0) {
-                        this.setState({ isAuthenticated: true, user: response.user });
+                if (response.data.code > -1) {
+                    if (response.data.code > 0) {
+                        this.setState({ isAuthenticated: true, user: response.data.user });
+                    }
+                    else {
+                        document.getElementById("loginheretext").innerText = "Check your credentials";
+                        document.getElementById("loginheretext").style.color = "#ff0000";
+                        setTimeout(function () {
+                            document.getElementById("loginheretext").style.color = "#60baaf";
+                        }, 300);
+                        
 
                     }
 
                 }
-                console.log("this.state");
-                console.log(this.state);
             }
-            catch (err){
+            catch (err) {
                 console.log(err);
+                alert(err);
             }
-           
-           
-                // ;(async () => {
-            //     const response = await axios.get("https://students-apis.herokuapp.com/stdapis/getuserbycred", {
-            //         params: {
-            //             inputEmail: document.getElementById("inputEmail").value,
-            //             inputPassword: document.getElementById("inputPassword").value
-            //         }
-            //     })
-            //     console.log(response);
-            //     if (response) {
-            //         if (response.code > 0) {
-            //             this.setState({ isAuthenticated: true, user: response.user });
 
-            //         }
 
-            //     }
-
-            // })();
 
         }
     }
 
     changeHandler = (e) => {
-        //   this.setState({ [e.target.id]: e.target.value });
-
         if (this.validData()) {
 
         }
-        // console.log({ [e.target.id]: e.target.value });
     }
 
     validData = () => {
@@ -122,7 +124,7 @@ class Login extends Component {
                 <div className="w3layouts-two-grids">
                     <div className="mid-class">
                         <div className="txt-left-side">
-                            <h2> Login Here </h2>
+                            <h2 id="loginheretext"> Login Here </h2>
                             <form>
                                 <div className="form-left-to-w3l">
                                     <span className="fa fa-envelope-o" aria-hidden="true" />
@@ -145,10 +147,10 @@ class Login extends Component {
                                 </div> */}
 
                             </form>
-                            
+
                             {/* </div><div className="btnn"> */}
                             <div className="w3layouts_more-buttn">
-                                <button type="submit" className="btn btn-lg" onClick={this.btnLoginClicked}>Logon </button>
+                                <button type="submit" className="btn btn-lg" onClick={this.btnLoginClicked}>Loghn </button>
                             </div>
                             {/* ///////////////////////////////////// */}
                             <br />
@@ -181,12 +183,13 @@ class Login extends Component {
         );
     }
 
-
     render() {
+        console.log("render() { this.state");
+        console.log(this.state);
 
         return (
             <div>
-                {(this.state.isAuthenticated) ? <Redirect to='/studentsfront/profile' user={this.state.user} /> : <span></span>}
+                {(this.state.isAuthenticated) ? <Redirect to={{ pathname: '/studentsfront/profileL', state: { user: this.state.user } }} /> : <span></span>}
                 {(this.state.reqRegister) ? <Redirect to='/studentsfront/register' /> : this.renderAll()}
             </div>
 
