@@ -116,7 +116,6 @@ class Login extends Component {
         window.open("https://students-apis.herokuapp.com/auth/google", "_self");
     }
 
-
     renderAll = () => {
         return (
             <div>

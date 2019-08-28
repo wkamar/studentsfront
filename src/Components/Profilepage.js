@@ -116,22 +116,22 @@ class Profilepage extends Component {
           <form>
             <div className="form-group">
               <label htmlFor="firstname" className="control-label">First Name:</label>
-              <input type="text" className="form-control" id="firstname" value="" onChange={this.changeHandler} placeholder="First Name" data-error="Enter Your First Name" required />
+              <input type="text" className="form-control" id="firstname" onChange={this.changeHandler} placeholder="First Name" data-error="Enter Your First Name" required />
               <div className="help-block with-errors" />
             </div>
             <div className="form-group">
               <label htmlFor="lastname" className="control-label">Last Name:</label>
-              <input type="text" className="form-control" id="lastname" value="" onChange={this.changeHandler} placeholder="Last Name" data-error="Enter Your Last Name" required />
+              <input type="text" className="form-control" id="lastname" onChange={this.changeHandler} placeholder="Last Name" data-error="Enter Your Last Name" required />
               <div className="help-block with-errors" />
             </div>
             <div className="form-group">
               <label htmlFor="inputEmail" className="control-label">Email:</label>
-              <input type="email" className="form-control" id="inputEmail" value="" onChange={this.changeHandler} placeholder="Email" data-error="This email address is invalid" required />
+              <input type="email" className="form-control" id="inputEmail" onChange={this.changeHandler} placeholder="Email" data-error="This email address is invalid" required />
               <div className="help-block with-errors" />
             </div>
             <div className="form-group">
               <label htmlFor="Phone" className="control-label">Phone:</label>
-              <input type="text" className="form-control" id="Phone" value="" onChange={this.changeHandler} placeholder="Phone" data-error="Enter Your Phone Number" required />
+              <input type="text" className="form-control" id="Phone" onChange={this.changeHandler} placeholder="Phone" data-error="Enter Your Phone Number" required />
               <div className="help-block with-errors" />
             </div>
             <div className="form-group">
@@ -151,11 +151,9 @@ class Profilepage extends Component {
             <div className="form-group w3ls-opt">
               <label htmlFor="Phone" className="control-label">Gender</label>
               <label className="w3layouts">
-                {/* <input type="radio" name="work" id="hire" value={hire} onChange={this.changeHandler} defaultValue="male" defaultChecked />Male */}
                 <input type="radio" name="work" id="hire" onClick={this.radioClicked} defaultChecked />Male
-  </label>
+              </label>
               <label className="w3layouts label2">
-                {/* <input type="radio" name="work" id="work" defaultValue="female" />Female */}
                 <input type="radio" name="work" id="work" onClick={this.radioClicked} />Female </label>
             </div>
 
