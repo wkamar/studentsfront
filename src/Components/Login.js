@@ -30,7 +30,7 @@ class Login extends Component {
 
         if (this.validData()) {
             console.log("btnLoginClicked = () => { if(this.validData()){");
-            (async () => {
+            ;(async () => {
                 const response = await axios.get("https://students-apis.herokuapp.com/stdapis/getuserbycred", {
                     params: {
                         inputEmail: document.getElementById("inputEmail").value,
