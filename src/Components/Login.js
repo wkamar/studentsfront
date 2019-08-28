@@ -122,8 +122,10 @@ class Login extends Component {
                                 </div> */}
 
                             </form>
-                            <div className="btnn">
-                                <button type="submit" onClick={this.btnLoginClicked}>Login </button>
+                            
+                            {/* </div><div className="btnn"> */}
+                            <div className="w3layouts_more-buttn">
+                                <button type="submit" className="btn btn-lg" onClick={this.btnLoginClicked}>Looogin </button>
                             </div>
                             {/* ///////////////////////////////////// */}
                             <br />
