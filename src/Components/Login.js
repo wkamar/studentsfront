@@ -15,73 +15,63 @@ class Login extends Component {
     constructor(props) {
         super(props)
 
-        this.state = { reqRegister: false, isAuthenticated: false, user: null, token: '' };
+        this.state = { reqRegister: false, isAuthenticated: false, user: {}, token: '' };
     }
 
     logout = () => {
         this.setState({ isAuthenticated: false, user: null, token: '' });
     };
 
-    responseFacebook = (response) => {
-        console.log(response);
-    }
-
-    responseGoogle = (response) => {
-        console.log(response);
-    }
-
-    onFailure = (error) => {
-        alert(error);
-    }
-
     btnRegisterNewStudentClicked = () => {
-        //ReactDOM.render(<RegisterNew />, document.getElementById('root'));
         this.setState({ reqRegister: true });
     }
 
     btnLoginClicked = () => {
-        //ReactDOM.render(<RegisterNew />, document.getElementById('root'));
-        this.setState({ reqRegister: true });
+
+        if(this.validData()){
+            (async () => {
+                const response = await axios.get("https://students-apis.herokuapp.com/stdapis/getuserbycred", {
+                    params: {
+                        inputEmail: document.getElementById("inputEmail").value, 
+                        inputPassword: document.getElementById("inputPassword").value
+                    }
+                })
+                console.log(response);
+                if(response){
+                    if(response.code > 0){
+                        this.setState({ isAuthenticated: true, user: response.user });
+
+                    }
+
+                }
+
+              }) ();
+              
+        }
     }
 
-    // btnloginwithfacebookClicked = async () => {
-    //     console.log(backurl + "/auth/facebook");
-    //     axios.get(backurl + "/auth/facebook").then(Response => {
-    //         console.log(Response);
-    //         if (Response.data.code > 0) {
-    //             alert(Response.data.message);
-    //             console.log(Response.data.user);
-    //             //ReactDOM.render(<Login />, document.getElementById('root'));
-    //         }
-    //         else {
-    //             alert(Response.data.message + "\n" + Response.data.errmessage);
-    //             console.log(Response.data.user);
+    validData = () => {
 
-    //         }
-    //     }).catch(error => {
-    //         console.log(error);
-    //     });
-    // }
+        // valid email
+        if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.getElementById("inputEmail").value))) {
+            document.getElementById("inputEmail").style.color = "#ff0000";
+            return (false);
+        }
+        else{
+            document.getElementById("inputEmail").style.color = "#000000";
+        }
 
-    // btnloginwithgoogleClicked = () => {
-    //     console.log(backurl + "/auth/google");
-    //     axios.get(backurl + "/auth/google").then(Response => {
-    //         console.log(Response);
-    //         if (Response.data.code > 0) {
-    //             alert(Response.data.message);
-    //             console.log(Response.data.user);
-    //             //ReactDOM.render(<Login />, document.getElementById('root'));
-    //         }
-    //         else {
-    //             alert(Response.data.message + "\n" + Response.data.errmessage);
-    //             console.log(Response.data.user);
+        // valid password
+        if (!(/^[A-Za-z]\w{5,14}$/.test(document.getElementById("inputPassword").value))) {
+            document.getElementById("inputPassword").style.color = "#ff0000";
+            return (false);
+        }
+        else{
+            document.getElementById("inputPassword").style.color = "#000000";
+        }
 
-    //         }
-    //     }).catch(error => {
-    //         console.log(error);
-    //     });
-
-    // }
+        return (true);
+    }
 
     btnloginwithfacebookClicked = () => {
         window.open("https://students-apis.herokuapp.com/auth/facebook", "_self");
@@ -103,15 +93,15 @@ class Login extends Component {
                             <form action="#" method="post">
                                 <div className="form-left-to-w3l">
                                     <span className="fa fa-envelope-o" aria-hidden="true" />
-                                    <input type="email" name="email" placeholder="Email" required />
+                                    <input type="email" name="email" id="inputEmail" onClick={this.btnLoginClicked} placeholder="Email" required />
                                     <div className="clear" />
                                 </div>
                                 <div className="form-left-to-w3l ">
                                     <span className="fa fa-lock" aria-hidden="true" />
-                                    <input type="password" name="password" placeholder="Password" required />
+                                    <input type="password" id="inputPassword" name="password" placeholder="Password" required />
                                     <div className="clear" />
                                 </div>
-                                <div className="main-two-w3ls">
+                                {/* <div className="main-two-w3ls">
                                     <div className="left-side-forget">
                                         <input type="checkbox" className="checked" />
                                         <span className="remenber-me">Remember me </span>
@@ -119,7 +109,7 @@ class Login extends Component {
                                     <div className="right-side-forget">
                                         <a to="https://www.google.com/" className="for">Forgot password...?</a>
                                     </div>
-                                </div>
+                                </div> */}
                                 <div className="btnn">
                                     <button type="submit">Login </button>
                                 </div>
@@ -160,6 +150,7 @@ class Login extends Component {
 
         return (
             <div>
+                {(this.state.isAuthenticated) ? <Redirect  to='/studentsfront/profile' user={this.state.user} /> : <span></span>}
                 {(this.state.reqRegister) ? <Redirect to='/studentsfront/register' /> : this.renderAll()}
             </div>
 

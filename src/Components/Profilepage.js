@@ -26,15 +26,27 @@ class Profilepage extends Component {
   }
 
   componentDidMount() {
+    if(this.state.user){
+      if (this.state.user.provider === "local") {
+        document.getElementById("firstname").value = this.state.user.FirstName;
+        document.getElementById("lastname").value = this.state.user.LastName;
+        document.getElementById("inputEmail").value = this.state.user.EmailAddress;
+        document.getElementById("Phone").value = this.state.user.PhoneNumber;
+        document.getElementById("welcomeprofilename").innerText = "Welcome " + this.state.user.FirstName;
+  
+        this.setState({ code: 1 });
+        return;
+      }
+    }
     console.log("componentDidMount() {");
     console.log("https://students-apis.herokuapp.com/auth/facebook/success");
     // Fetch does not send cookies. So you should add credentials: 'include'
-    
+
     var config = {
       credentials: "include",
-      headers: {'Access-Control-Allow-Origin': '*', "Access-Control-Allow-Credentials": true, Accept: "application/json"}
-  };
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+      headers: { 'Access-Control-Allow-Origin': '*', "Access-Control-Allow-Credentials": true, Accept: "application/json" }
+    };
+
     fetch("https://students-apis.herokuapp.com/auth/facebook/success", {
       method: "GET",
       credentials: "include",
@@ -44,9 +56,6 @@ class Profilepage extends Component {
         "Access-Control-Allow-Credentials": true
       }
     })
-    
-    //axios.get("https://students-apis.herokuapp.com/auth/facebook/success", config)    
-    ///////////////////////////////////////////////////////////////////////////////////////////////
       .then(response => {
         console.log(".then(response => {");
         console.log(response);
@@ -66,7 +75,7 @@ class Profilepage extends Component {
             document.getElementById("lastname").value = this.state.user._json.family_name;
             document.getElementById("inputEmail").value = this.state.user._json.email;
             document.getElementById("welcomeprofilename").innerText = "Welcome " + this.state.user._json.given_name;
-            
+
           }
           else if (this.state.user.provider === "facebook") {
             document.getElementById("firstname").value = this.state.user._json.first_name;
@@ -103,7 +112,10 @@ class Profilepage extends Component {
 
 
   render() {
+    console.log("this.props : ");
+    console.log(this.props);
     const { code, message, errmessage, loggedwith, user, cookies } = this.state;
+    console.log("this.state : ");
     console.log(this.state);
     if (this.state.code === -1) return (
       <div>
