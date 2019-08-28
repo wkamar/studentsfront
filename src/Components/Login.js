@@ -30,12 +30,13 @@ class Login extends Component {
 
         if (this.validData()) {
             console.log("btnLoginClicked = () => { if(this.validData()){");
+            try{
             const response = await axios.get("https://students-apis.herokuapp.com/stdapis/getuserbycred", {
                     params: {
                         inputEmail: document.getElementById("inputEmail").value,
                         inputPassword: document.getElementById("inputPassword").value
                     }
-                })
+                });
                 console.log(response);
                 if (response) {
                     if (response.code > 0) {
@@ -46,7 +47,13 @@ class Login extends Component {
                 }
                 console.log("this.state");
                 console.log(this.state);
-            // ;(async () => {
+            }
+            catch (err){
+                console.log(err);
+            }
+           
+           
+                // ;(async () => {
             //     const response = await axios.get("https://students-apis.herokuapp.com/stdapis/getuserbycred", {
             //         params: {
             //             inputEmail: document.getElementById("inputEmail").value,
@@ -141,7 +148,7 @@ class Login extends Component {
                             
                             {/* </div><div className="btnn"> */}
                             <div className="w3layouts_more-buttn">
-                                <button type="submit" className="btn btn-lg" onClick={this.btnLoginClicked}>Logan </button>
+                                <button type="submit" className="btn btn-lg" onClick={this.btnLoginClicked}>Logon </button>
                             </div>
                             {/* ///////////////////////////////////// */}
                             <br />
