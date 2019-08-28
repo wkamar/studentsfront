@@ -28,36 +28,36 @@ class Login extends Component {
 
     btnLoginClicked = () => {
 
-        if(this.validData()){
+        if (this.validData()) {
             console.log("btnLoginClicked = () => { if(this.validData()){");
             (async () => {
                 const response = await axios.get("https://students-apis.herokuapp.com/stdapis/getuserbycred", {
                     params: {
-                        inputEmail: document.getElementById("inputEmail").value, 
+                        inputEmail: document.getElementById("inputEmail").value,
                         inputPassword: document.getElementById("inputPassword").value
                     }
                 })
                 console.log(response);
-                if(response){
-                    if(response.code > 0){
+                if (response) {
+                    if (response.code > 0) {
                         this.setState({ isAuthenticated: true, user: response.user });
 
                     }
 
                 }
 
-              }) ();
-              
+            })();
+
         }
     }
 
     changeHandler = (e) => {
-     //   this.setState({ [e.target.id]: e.target.value });
+        //   this.setState({ [e.target.id]: e.target.value });
 
-        if(this.validData()){
+        if (this.validData()) {
 
         }
-       // console.log({ [e.target.id]: e.target.value });
+        // console.log({ [e.target.id]: e.target.value });
     }
 
     validData = () => {
@@ -67,7 +67,7 @@ class Login extends Component {
             document.getElementById("inputEmail").style.color = "#ff0000";
             return (false);
         }
-        else{
+        else {
             document.getElementById("inputEmail").style.color = "#000000";
         }
 
@@ -76,7 +76,7 @@ class Login extends Component {
             document.getElementById("inputPassword").style.color = "#ff0000";
             return (false);
         }
-        else{
+        else {
             document.getElementById("inputPassword").style.color = "#000000";
         }
 
@@ -120,10 +120,11 @@ class Login extends Component {
                                         <a to="https://www.google.com/" className="for">Forgot password...?</a>
                                     </div>
                                 </div> */}
-                                <div className="btnn">
-                                    <button type="submit" onClick={this.btnLoginClicked}>Login </button>
-                                </div>
+
                             </form>
+                            <div className="btnn">
+                                <button type="submit" onClick={this.btnLoginClicked}>Login </button>
+                            </div>
                             {/* ///////////////////////////////////// */}
                             <br />
                             <div className="w3layouts_more-buttn">
@@ -160,7 +161,7 @@ class Login extends Component {
 
         return (
             <div>
-                {(this.state.isAuthenticated) ? <Redirect  to='/studentsfront/profile' user={this.state.user} /> : <span></span>}
+                {(this.state.isAuthenticated) ? <Redirect to='/studentsfront/profile' user={this.state.user} /> : <span></span>}
                 {(this.state.reqRegister) ? <Redirect to='/studentsfront/register' /> : this.renderAll()}
             </div>
 
