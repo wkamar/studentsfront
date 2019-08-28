@@ -100,7 +100,7 @@ class Login extends Component {
                     <div className="mid-class">
                         <div className="txt-left-side">
                             <h2> Login Here </h2>
-                            <form action="#" method="post">
+                            <form>
                                 <div className="form-left-to-w3l">
                                     <span className="fa fa-envelope-o" aria-hidden="true" />
                                     <input type="email" name="email" id="inputEmail" onChange={this.changeHandler} placeholder="Email" required />
