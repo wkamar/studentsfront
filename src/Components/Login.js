@@ -26,12 +26,11 @@ class Login extends Component {
         this.setState({ reqRegister: true });
     }
 
-    btnLoginClicked = () => {
+    btnLoginClicked = async () => {
 
         if (this.validData()) {
             console.log("btnLoginClicked = () => { if(this.validData()){");
-            ;(async () => {
-                const response = await axios.get("https://students-apis.herokuapp.com/stdapis/getuserbycred", {
+            const response = await axios.get("https://students-apis.herokuapp.com/stdapis/getuserbycred", {
                     params: {
                         inputEmail: document.getElementById("inputEmail").value,
                         inputPassword: document.getElementById("inputPassword").value
@@ -45,8 +44,25 @@ class Login extends Component {
                     }
 
                 }
+                console.log("this.state");
+                console.log(this.state);
+            // ;(async () => {
+            //     const response = await axios.get("https://students-apis.herokuapp.com/stdapis/getuserbycred", {
+            //         params: {
+            //             inputEmail: document.getElementById("inputEmail").value,
+            //             inputPassword: document.getElementById("inputPassword").value
+            //         }
+            //     })
+            //     console.log(response);
+            //     if (response) {
+            //         if (response.code > 0) {
+            //             this.setState({ isAuthenticated: true, user: response.user });
 
-            })();
+            //         }
+
+            //     }
+
+            // })();
 
         }
     }
@@ -125,7 +141,7 @@ class Login extends Component {
                             
                             {/* </div><div className="btnn"> */}
                             <div className="w3layouts_more-buttn">
-                                <button type="submit" className="btn btn-lg" onClick={this.btnLoginClicked}>Looogin </button>
+                                <button type="submit" className="btn btn-lg" onClick={this.btnLoginClicked}>Logan </button>
                             </div>
                             {/* ///////////////////////////////////// */}
                             <br />
