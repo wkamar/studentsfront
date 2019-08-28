@@ -150,7 +150,7 @@ class Login extends Component {
 
                             {/* </div><div className="btnn"> */}
                             <div className="w3layouts_more-buttn">
-                                <button type="submit" className="btn btn-lg" onClick={this.btnLoginClicked}>Loghn </button>
+                                <button type="submit" className="btn btn-lg" onClick={this.btnLoginClicked}>Login</button>
                             </div>
                             {/* ///////////////////////////////////// */}
                             <br />
