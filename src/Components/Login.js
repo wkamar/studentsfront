@@ -29,6 +29,7 @@ class Login extends Component {
     btnLoginClicked = () => {
 
         if(this.validData()){
+            console.log("btnLoginClicked = () => { if(this.validData()){");
             (async () => {
                 const response = await axios.get("https://students-apis.herokuapp.com/stdapis/getuserbycred", {
                     params: {
@@ -48,6 +49,15 @@ class Login extends Component {
               }) ();
               
         }
+    }
+
+    changeHandler = (e) => {
+     //   this.setState({ [e.target.id]: e.target.value });
+
+        if(this.validData()){
+
+        }
+       // console.log({ [e.target.id]: e.target.value });
     }
 
     validData = () => {
@@ -93,12 +103,12 @@ class Login extends Component {
                             <form action="#" method="post">
                                 <div className="form-left-to-w3l">
                                     <span className="fa fa-envelope-o" aria-hidden="true" />
-                                    <input type="email" name="email" id="inputEmail" onClick={this.btnLoginClicked} placeholder="Email" required />
+                                    <input type="email" name="email" id="inputEmail" onChange={this.changeHandler} placeholder="Email" required />
                                     <div className="clear" />
                                 </div>
                                 <div className="form-left-to-w3l ">
                                     <span className="fa fa-lock" aria-hidden="true" />
-                                    <input type="password" id="inputPassword" name="password" placeholder="Password" required />
+                                    <input type="password" id="inputPassword" name="password" onChange={this.changeHandler} placeholder="Password" required />
                                     <div className="clear" />
                                 </div>
                                 {/* <div className="main-two-w3ls">
@@ -111,7 +121,7 @@ class Login extends Component {
                                     </div>
                                 </div> */}
                                 <div className="btnn">
-                                    <button type="submit">Login </button>
+                                    <button type="submit" onClick={this.btnLoginClicked}>Login </button>
                                 </div>
                             </form>
                             {/* ///////////////////////////////////// */}
