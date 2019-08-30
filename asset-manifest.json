@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/studentsfront/static/css/main.ace265b4.chunk.css",
-    "main.js": "/studentsfront/static/js/main.266c47a5.chunk.js",
-    "main.js.map": "/studentsfront/static/js/main.266c47a5.chunk.js.map",
+    "main.js": "/studentsfront/static/js/main.1bd5dfb3.chunk.js",
+    "main.js.map": "/studentsfront/static/js/main.1bd5dfb3.chunk.js.map",
     "runtime~main.js": "/studentsfront/static/js/runtime~main.ef75aed8.js",
     "runtime~main.js.map": "/studentsfront/static/js/runtime~main.ef75aed8.js.map",
     "static/js/2.be64243c.chunk.js": "/studentsfront/static/js/2.be64243c.chunk.js",
     "static/js/2.be64243c.chunk.js.map": "/studentsfront/static/js/2.be64243c.chunk.js.map",
     "index.html": "/studentsfront/index.html",
-    "precache-manifest.a540b390ce84bfe868a3890a31af5778.js": "/studentsfront/precache-manifest.a540b390ce84bfe868a3890a31af5778.js",
+    "precache-manifest.89026a5d5d1ab664c58fc2724e304b49.js": "/studentsfront/precache-manifest.89026a5d5d1ab664c58fc2724e304b49.js",
     "service-worker.js": "/studentsfront/service-worker.js",
     "static/css/main.ace265b4.chunk.css.map": "/studentsfront/static/css/main.ace265b4.chunk.css.map",
     "static/media/profile.css": "/studentsfront/static/media/content.eeb8dec7.jpg",
