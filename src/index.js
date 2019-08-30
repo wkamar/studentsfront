@@ -8,7 +8,7 @@ import RegisterNew from './Components/RegisterNew'
 import Login from './Components/Login'
 import TestLogin from './Components/TestLogin'
 import mainNav from './Components/mainNav';
-import Items from './Components/Items';
+// import Items from './Components/Items';
 import TestNav from './Components/TestNav';
 
 //ReactDOM.render(<RegisterNew />, document.getElementById('root'));
