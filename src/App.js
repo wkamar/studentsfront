@@ -8,7 +8,6 @@ import TestNav from './Components/TestNav';
 import Login from './Components/Login'
 import RegisterNew from './Components/RegisterNew';
 import ProfilePage from './Components/Profilepage';
-import ProfileLocal from './Components/ProfileLocal';
 
 var backurl = "https://students-apis.herokuapp.com";
 
@@ -35,7 +34,6 @@ class App extends Component {
             <Route path="/studentsfront/login" component={Login} />
             <Route path="/studentsfront/register" component={RegisterNew} />
             <Route path="/studentsfront/profile" component={ProfilePage} />
-            <Route path="/studentsfront/profileL" component={ProfileLocal} />
             <Route path="/studentsfront/" component={ProfilePage} />
             <Route exact path="/" component={ProfilePage} />
           </Switch>
