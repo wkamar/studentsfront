@@ -171,7 +171,7 @@ class Login extends Component {
 
         return (
             <div>
-                {(this.state.isAuthenticated) ? <Redirect to='/studentsfront/profile' /> : this.renderAll()}
+                {(this.state.isAuthenticated) ? <Redirect to='/studentsfront/profile' /> : <span></span>}
                 {(this.state.reqRegister) ? <Redirect to='/studentsfront/register' /> : this.renderAll()}
             </div>
 
