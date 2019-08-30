@@ -34,8 +34,8 @@ class Profilepage extends Component {
       headers: { 'Access-Control-Allow-Origin': '*', "Access-Control-Allow-Credentials": true, Accept: "application/json" }
     };
 
-    //fetch("https://students-apis.herokuapp.com/auth/facebook/success", {
-    fetch("https://students-apis.herokuapp.com/auth/login/success", {
+    fetch("https://students-apis.herokuapp.com/auth/facebook/success", {
+    //fetch("https://students-apis.herokuapp.com/auth/login/success", {
       method: "GET",
       credentials: "include",
       headers: {
