@@ -26,36 +26,19 @@ class Login extends Component {
         this.setState({ reqRegister: true });
     }
 
-
-    // btnLoginClicked = () => {
-
-    //     if (this.validData()) {
-    //         console.log("btnLoginClicked = () => { if(this.validData()){");
-    //         axios.post("http://localhost:3003/stdapis/getuserbycred", {
-    //                     inputEmail: document.getElementById("inputEmail").value,
-    //                     inputPassword: document.getElementById("inputPassword").value
-    //             }).then(Response =>{
-    //             console.log(Response);
-    //         }).catch(error => {
-    //             console.log(error);
-    //         });
-
-    //     }
-    // }
-
     btnLoginClicked = async () => {
 
         if (this.validData()) {
             try {
-                const response = await axios.post("https://students-apis.herokuapp.com/stdapis/getuserbycred", {
-                //const response = await axios.post("http://localhost:3003/stdapis/getuserbycred", {
+                const response = await axios.post("https://students-apis.herokuapp.com/auth/login", {
                     inputEmail: document.getElementById("inputEmail").value,
                     inputPassword: document.getElementById("inputPassword").value
                 });
                 console.log(response);
                 if (response.data.code > -1) {
                     if (response.data.code > 0) {
-                        this.setState({ isAuthenticated: true, user: response.data.user });
+                        //this.setState({ isAuthenticated: true, user: response.data.user });
+                        this.setState({ isAuthenticated: true});
                     }
                     else {
                         document.getElementById("loginheretext").innerText = "Check your credentials";
@@ -183,12 +166,12 @@ class Login extends Component {
     }
 
     render() {
-        console.log("render() { this.state");
+        console.log("Login render() { this.state");
         console.log(this.state);
 
         return (
             <div>
-                {(this.state.isAuthenticated) ? <Redirect to={{ pathname: '/studentsfront/profileL', state: { user: this.state.user } }} /> : <span></span>}
+                {(this.state.isAuthenticated) ? <Redirect to='/studentsfront/profile' /> : this.renderAll()}
                 {(this.state.reqRegister) ? <Redirect to='/studentsfront/register' /> : this.renderAll()}
             </div>
 

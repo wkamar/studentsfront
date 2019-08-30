@@ -18,6 +18,7 @@ class Profilepage extends Component {
   }
 
   btnlogoutclicked = () => {
+    
 
   }
 
@@ -27,16 +28,14 @@ class Profilepage extends Component {
 
   componentDidMount() {
 
-    console.log("componentDidMount() {");
-    console.log("https://students-apis.herokuapp.com/auth/facebook/success");
-    // Fetch does not send cookies. So you should add credentials: 'include'
 
     var config = {
       credentials: "include",
       headers: { 'Access-Control-Allow-Origin': '*', "Access-Control-Allow-Credentials": true, Accept: "application/json" }
     };
 
-    fetch("https://students-apis.herokuapp.com/auth/facebook/success", {
+    //fetch("https://students-apis.herokuapp.com/auth/facebook/success", {
+    fetch("https://students-apis.herokuapp.com/auth/login/success", {
       method: "GET",
       credentials: "include",
       headers: {
@@ -72,11 +71,25 @@ class Profilepage extends Component {
             document.getElementById("inputEmail").value = this.state.user._json.email;
             document.getElementById("welcomeprofilename").innerText = "Welcome " + this.state.user._json.first_name;
           }
+          else if (this.state.user.provider === "local") {
+            document.getElementById("firstname").value = this.state.user.FirstName;
+            document.getElementById("lastname").value = this.state.user.LastName;
+            document.getElementById("inputEmail").value = this.state.user.EmailAddress;
+            document.getElementById("welcomeprofilename").innerText = "Welcome " + this.state.user.FirstName;
+            document.getElementById("Phone").value = this.state.user.PhoneNumber;
+            document.getElementById("hire").checked = this.state.user.Gender & true;
+            document.getElementById("work").checked = !document.getElementById("hire").checked;
+          }
+          window.TestNavComponent.changeState(true, document.getElementById("firstname").value + " " + document.getElementById("lastname").value);
+        }
+        else{
+          window.TestNavComponent.changeState(false, "");
         }
 
       })
       .catch(error => {
         console.log("catch Error : " + error);
+        window.TestNavComponent.changeState(false, "");
         this.setState({ code: 0 });
       });
 
@@ -159,7 +172,7 @@ class Profilepage extends Component {
 
           </form>
           <div className="form-group">
-            <button type="submit" className="btn btn-lg" id="btnRegisterNewStudent" onClick={this.submitHandler}>Update</button>
+            <button type="submit" className="btn btn-lg2" id="btnRegisterNewStudent" onClick={this.btnlogoutclicked}>Update</button>
           </div>
 
         </div>

@@ -18,7 +18,9 @@ import TestNav from './Components/TestNav';
 //ReactDOM.render(<Login></Login>, document.getElementById('root'));
 //ReactDOM.render(<TestLogin />, document.getElementById('root'));
 
-ReactDOM.render(<App />, document.getElementById('root'));
+//ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App ref={(AppComponent) => {window.AppComponent = AppComponent}} />, document.getElementById("root"));
+
 //ReactDOM.render(<mainNav>main Nav</mainNav>, document.getElementById('root'));
 
 

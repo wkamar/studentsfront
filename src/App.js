@@ -4,16 +4,13 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 
-
-
-import Items from './Components/Items';
 import TestNav from './Components/TestNav';
 import Login from './Components/Login'
 import RegisterNew from './Components/RegisterNew';
 import ProfilePage from './Components/Profilepage';
 import ProfileLocal from './Components/ProfileLocal';
 
-var backurl = "http://localhost:3003";
+var backurl = "https://students-apis.herokuapp.com";
 
 const homemess = () => {
   return (
@@ -30,7 +27,8 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <TestNav></TestNav>
+          {/* <TestNav></TestNav> */}
+          <TestNav ref={(TestNavComponent) => {window.TestNavComponent = TestNavComponent}}/>
           {/* <Login></Login> */}
           {/* <Route exact path="/" Component={homemess}></Route> */}
           <Switch>
