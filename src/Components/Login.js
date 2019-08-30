@@ -166,9 +166,6 @@ class Login extends Component {
     }
 
     render() {
-        console.log("Login render() { this.state");
-        console.log(this.state);
-
         return (
             <div>
                 {(this.state.isAuthenticated) ? <Redirect to='/studentsfront/profile' /> : <span></span>}
