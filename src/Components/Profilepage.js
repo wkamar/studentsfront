@@ -118,11 +118,13 @@ class Profilepage extends Component {
   };
 
   RenderListUsersButt = () => {
-    if (this.state.user.provider === "local") {
-      if (this.state.user.UserType === 0) {
-        return (
-          <button type="submit" className="btn btn-lg3" id="btnRegisterNewStudent" onClick={this.btnUsersListClicked}>Users List</button>
-        );
+    if (this.state.user) {
+      if (this.state.user.provider === "local") {
+        if (this.state.user.UserType === 0) {
+          return (
+            <button type="submit" className="btn btn-lg3" id="btnRegisterNewStudent" onClick={this.btnUsersListClicked}>Users List</button>
+          );
+        }
       }
     }
     return (<span></span>);
