@@ -12,25 +12,12 @@ import UsersList from './Components/UsersList';
 
 var backurl = "https://students-apis.herokuapp.com";
 
-const homemess = () => {
-  return (
-    <div>
-      <h3>
-        Main 
-      </h3>
-    </div>
-  );
-}
-
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
         <div className="App">
-          {/* <TestNav></TestNav> */}
-          <TestNav ref={(TestNavComponent) => {window.TestNavComponent = TestNavComponent}}/>
-          {/* <Login></Login> */}
-          {/* <Route exact path="/" Component={homemess}></Route> */}
+          <TestNav ref={(TestNavComponent) => { window.TestNavComponent = TestNavComponent }} />
           <Switch>
             <Route path="/studentsfront/login" component={Login} />
             <Route path="/studentsfront/register" component={RegisterNew} />
@@ -45,6 +32,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App;

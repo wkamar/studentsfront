@@ -31,32 +31,27 @@ class RegNewForm extends Component {
     changeHandler = (e) => {
         this.setState({ [e.target.id]: e.target.value });
 
-        if(this.validData()){
+        if (this.validData()) {
 
         }
         console.log({ [e.target.id]: e.target.value });
     }
 
     submitHandler = (e) => {
-        if(this.validData()){
+        if (this.validData()) {
             console.log(this.state);
-            console.log("https://students-apis.herokuapp.com/stdapis/newuser");
-            axios.post("https://students-apis.herokuapp.com/stdapis/newuser", this.state).then(Response =>{
+            axios.post("https://students-apis.herokuapp.com/stdapis/newuser", this.state).then(Response => {
                 console.log(Response);
-                if(Response.data.newid>0)
-                {
+                if (Response.data.newid > 0) {
                     alert(Response.data.message);
-                    //ReactDOM.render(<Login />, document.getElementById('root'));
-                    this.setState({hire: -1});
+                    this.setState({ hire: -1 });
                 }
-                else{
+                else {
                     alert(Response.data.message + "\n" + Response.data.errmessage);
-
                 }
             }).catch(error => {
                 console.log(error);
             });
-
         }
     }
 
@@ -71,7 +66,7 @@ class RegNewForm extends Component {
             document.getElementById("firstname").style.color = "#ff0000";
             return (false);
         }
-        else{
+        else {
             document.getElementById("firstname").style.color = "#000000";
         }
 
@@ -80,7 +75,7 @@ class RegNewForm extends Component {
             document.getElementById("lastname").style.color = "#ff0000";
             return (false);
         }
-        else{
+        else {
             document.getElementById("lastname").style.color = "#000000";
         }
 
@@ -89,7 +84,7 @@ class RegNewForm extends Component {
             document.getElementById("inputEmail").style.color = "#ff0000";
             return (false);
         }
-        else{
+        else {
             document.getElementById("inputEmail").style.color = "#000000";
         }
 
@@ -98,7 +93,7 @@ class RegNewForm extends Component {
             document.getElementById("Phone").style.color = "#ff0000";
             return (false);
         }
-        else{
+        else {
             document.getElementById("Phone").style.color = "#000000";
         }
 
@@ -107,7 +102,7 @@ class RegNewForm extends Component {
             document.getElementById("inputPassword").style.color = "#ff0000";
             return (false);
         }
-        else{
+        else {
             document.getElementById("inputPassword").style.color = "#000000";
         }
 
@@ -116,19 +111,17 @@ class RegNewForm extends Component {
             document.getElementById("inputPasswordConfirm").style.color = "#ff0000";
             return (false);
         }
-        else if (document.getElementById("inputPassword").value !== document.getElementById("inputPasswordConfirm").value){
+        else if (document.getElementById("inputPassword").value !== document.getElementById("inputPasswordConfirm").value) {
             document.getElementById("inputPasswordConfirm").style.color = "#ff0000";
             return (false);
         }
-        else{
+        else {
             document.getElementById("inputPasswordConfirm").style.color = "#000000";
         }
 
-        
-
         return (true);
     }
-    
+
     render() {
         const { firstname, lastname, inputEmail, Phone, inputPassword, inputPasswordConfirm, hire } = this.state;
         if (hire === -1) return (<Redirect to='/studentsfront/login' />);
@@ -174,11 +167,9 @@ class RegNewForm extends Component {
                         <div className="form-group w3ls-opt">
                             <label htmlFor="Phone" className="control-label">Gender</label>
                             <label className="w3layouts">
-                                {/* <input type="radio" name="work" id="hire" value={hire} onChange={this.changeHandler} defaultValue="male" defaultChecked />Male */}
                                 <input type="radio" name="work" id="hire" onClick={this.radioClicked} defaultChecked />Male
         </label>
                             <label className="w3layouts label2">
-                                {/* <input type="radio" name="work" id="work" defaultValue="female" />Female */}
                                 <input type="radio" name="work" id="work" onClick={this.radioClicked} />Female </label>
                         </div>
 

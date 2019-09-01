@@ -1,9 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import ReactDOM from 'react-dom';
-
-import Login from './Login';
-
 import axios from 'axios';
 
 class UsersList extends Component {

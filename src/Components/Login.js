@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { Redirect } from 'react-router-dom';
-import RegisterNew from './RegisterNew';
 
 import axios from 'axios';
-import backurl from '../glob';
-import { async } from 'q';
 
 import "./loginstyle.css";
 import "./font-awesome.min.css";
@@ -37,8 +33,7 @@ class Login extends Component {
                 console.log(response);
                 if (response.data.code > -1) {
                     if (response.data.code > 0) {
-                        //this.setState({ isAuthenticated: true, user: response.data.user });
-                        this.setState({ isAuthenticated: true});
+                        this.setState({ isAuthenticated: true });
                     }
                     else {
                         document.getElementById("loginheretext").innerText = "Check your credentials";
@@ -46,8 +41,6 @@ class Login extends Component {
                         setTimeout(function () {
                             document.getElementById("loginheretext").style.color = "#60baaf";
                         }, 300);
-                        
-
                     }
 
                 }
@@ -56,15 +49,11 @@ class Login extends Component {
                 console.log(err);
                 alert(err);
             }
-
-
-
         }
     }
 
     changeHandler = (e) => {
         if (this.validData()) {
-
         }
     }
 
@@ -118,23 +107,11 @@ class Login extends Component {
                                     <input type="password" id="inputPassword" name="password" onChange={this.changeHandler} placeholder="Password" required />
                                     <div className="clear" />
                                 </div>
-                                {/* <div className="main-two-w3ls">
-                                    <div className="left-side-forget">
-                                        <input type="checkbox" className="checked" />
-                                        <span className="remenber-me">Remember me </span>
-                                    </div>
-                                    <div className="right-side-forget">
-                                        <a to="https://www.google.com/" className="for">Forgot password...?</a>
-                                    </div>
-                                </div> */}
-
                             </form>
 
-                            {/* </div><div className="btnn"> */}
                             <div className="w3layouts_more-buttn">
                                 <button type="submit" className="btn btn-lg" onClick={this.btnLoginClicked}>Login</button>
                             </div>
-                            {/* ///////////////////////////////////// */}
                             <br />
                             <div className="w3layouts_more-buttn">
                                 <button type="submit" className="btn btn-lg" id="btnloginwithfacebook" onClick={this.btnloginwithfacebookClicked}>Login with Facebook</button>
@@ -143,14 +120,9 @@ class Login extends Component {
                             <div className="w3layouts_more-buttn">
                                 <button type="submit" className="btn btn-lg" id="btnloginwithgoogle" onClick={this.btnloginwithgoogleClicked}>Login with Google</button>
                             </div>
-                            {/* ///////////////////////////////////// */}
-
                             <div className="w3layouts_more-buttn">
                                 <h3>Don't Have an account..? <button type="submit" className="btn btn-lg" id="btnRegisterNewStudent" onClick={this.btnRegisterNewStudentClicked}>Register Here</button> </h3>
                             </div>
-
-
-
                         </div>
                         <div className="img-right-side">
                             <h3>Welcome To Student Login Form</h3>

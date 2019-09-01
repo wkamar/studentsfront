@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
-import ReactDOM from 'react-dom';
-
 import axios from 'axios';
 
 import "./profile.css";
@@ -37,7 +35,6 @@ class Profilepage extends Component {
       headers: { 'Access-Control-Allow-Origin': '*', "Access-Control-Allow-Credentials": true, Accept: "application/json" }
     };
 
-    //fetch("https://students-apis.herokuapp.com/auth/facebook/success", {
     fetch("https://students-apis.herokuapp.com/auth/login/success", {
       method: "GET",
       credentials: "include",
@@ -48,14 +45,12 @@ class Profilepage extends Component {
       }
     })
       .then(response => {
-        console.log(".then(response => {");
         console.log(response);
         if (response.status === 200) return response.json();
         console.log("failed to authenticate user");
         this.setState({ code: 0 });
       })
       .then(responseJson => {
-        console.log(".then(responseJson => {");
         console.log(responseJson);
         this.setState({ code: responseJson.code, message: responseJson.message, errmessage: responseJson.errmessage, loggedwith: responseJson.loggedwith, user: responseJson.user });
 
@@ -99,18 +94,14 @@ class Profilepage extends Component {
       });
 
     if (window.location.hash && window.location.hash === "#_=_") {
-      // If you are not using Modernizr, then the alternative is:
-      //   `if (window.history && history.replaceState) {`
       if (window.history) {
         window.history.replaceState("", document.title, window.location.pathname);
       } else {
-        // Prevent scrolling by storing the page's current scroll offset
         var scroll = {
           top: document.body.scrollTop,
           left: document.body.scrollLeft
         };
         window.location.hash = "";
-        // Restore the scroll offset, should be flicker free
         document.body.scrollTop = scroll.top;
         document.body.scrollLeft = scroll.left;
       }
@@ -122,19 +113,16 @@ class Profilepage extends Component {
       if (this.state.user.provider === "local") {
         if (this.state.user.UserType === 0) {
           return (
-            <button type="submit" className="btn btn-lg3" id="btnRegisterNewStudent" onClick={this.btnUsersListClicked}>Users List</button>
+            <button type="submit" className="btn btn-lg3" id="btnUsersList" onClick={this.btnUsersListClicked}>Users List</button>
           );
         }
       }
     }
     return (<span></span>);
-
-
   }
 
   render() {
     const { code, message, errmessage, loggedwith, user, cookies } = this.state;
-    console.log(this.state);
     if (this.state.code === -1) return (
       <div>
         <h1>Logging...</h1>
@@ -143,7 +131,6 @@ class Profilepage extends Component {
     return (
       <div className="content-agileits">
         {(this.state.code > 0) ? <h1 className="title" id="welcomeprofilename"> </h1> : this.renderRedirect()}
-        {/* <h1 className="title">Your profile</h1> */}
         <div className="left">
           <form>
             <div className="form-group">

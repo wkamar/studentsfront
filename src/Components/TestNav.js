@@ -8,17 +8,13 @@ import "./mainNav.css";
 class TestNav extends Component {
     constructor(props) {
         super(props)
-    
+
         this.state = { Loggedin: false, ProfileName: "Profile" };
-    
       }
 
       changeState = (pLoggedin, pProfileName) => {
           this.setState ({Loggedin: pLoggedin, ProfileName: pProfileName});
-
       }
-
-
 
       doLogout = () => {
         console.log(axios.get("https://students-apis.herokuapp.com/auth/logout"));
