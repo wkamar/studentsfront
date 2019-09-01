@@ -384,6 +384,32 @@ label.w3layouts {
 	text-transform: initial;
 }
 
+.content-agileits button.btn.btn-lg3 {
+	width: 100%;
+	height: 45px;
+	margin: 0 auto;
+	text-align: center;
+	float: none;
+	color: #fff;
+	font-size: 17px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	display: block;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-o-border-radius: 0;
+	-ms-border-radius: 0;
+	background: forestgreen;
+	transition: all 0.5s ease-in-out;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	text-transform: initial;
+}
+
+
 .btn.disabled,
 .btn[disabled],
 fieldset[disabled] .btn {

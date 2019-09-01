@@ -17,11 +17,14 @@ class Profilepage extends Component {
 
   }
 
-  btnlogoutclicked = () => {
-    
-
+  btnUpdateClicked = () => {
   }
 
+    btnUsersListClicked = () => {
+      this.props.history.push("/studentsfront/UsersList");
+  }
+
+  
   renderRedirect = () => {
     return <Redirect to='/studentsfront/login' />
   }
@@ -112,6 +115,18 @@ class Profilepage extends Component {
     }
   };
 
+  RenderListUsersButt = () =>{
+    if(this.state.user.provider === "local"){
+      if(this.state.user.UserType === 0){
+        return(
+        <button type="submit" className="btn btn-lg3" id="btnRegisterNewStudent" onClick={this.btnUsersListClicked}>Users List</button>
+        );
+      }
+    }
+    return(<span></span>);
+    
+    
+  }
 
   render() {
     const { code, message, errmessage, loggedwith, user, cookies } = this.state;
@@ -172,14 +187,15 @@ class Profilepage extends Component {
 
           </form>
           <div className="form-group">
-            <button type="submit" className="btn btn-lg2" id="btnRegisterNewStudent" onClick={this.btnlogoutclicked}>Update</button>
+            <button type="submit" className="btn btn-lg2" id="btnRegisterNewStudent" onClick={this.btnUpdateClicked}>Update</button>
+            <br></br>
+            {this.RenderListUsersButt()}
           </div>
 
         </div>
         <div className="right" />
         <div className="clear" />
       </div>
-
     );
   }
 
