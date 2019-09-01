@@ -20,11 +20,11 @@ class Profilepage extends Component {
   btnUpdateClicked = () => {
   }
 
-    btnUsersListClicked = () => {
-      this.props.history.push("/studentsfront/UsersList");
+  btnUsersListClicked = () => {
+    this.props.history.push("/studentsfront/UsersList");
   }
 
-  
+
   renderRedirect = () => {
     return <Redirect to='/studentsfront/login' />
   }
@@ -85,14 +85,16 @@ class Profilepage extends Component {
           }
           window.TestNavComponent.changeState(true, document.getElementById("firstname").value + " " + document.getElementById("lastname").value);
         }
-        else{
+        else {
           window.TestNavComponent.changeState(false, "");
         }
 
       })
       .catch(error => {
         console.log("catch Error : " + error);
-        window.TestNavComponent.changeState(false, "");
+        if (window.TestNavComponent) {
+          window.TestNavComponent.changeState(false, "");
+        }
         this.setState({ code: 0 });
       });
 
@@ -115,17 +117,17 @@ class Profilepage extends Component {
     }
   };
 
-  RenderListUsersButt = () =>{
-    if(this.state.user.provider === "local"){
-      if(this.state.user.UserType === 0){
-        return(
-        <button type="submit" className="btn btn-lg3" id="btnRegisterNewStudent" onClick={this.btnUsersListClicked}>Users List</button>
+  RenderListUsersButt = () => {
+    if (this.state.user.provider === "local") {
+      if (this.state.user.UserType === 0) {
+        return (
+          <button type="submit" className="btn btn-lg3" id="btnRegisterNewStudent" onClick={this.btnUsersListClicked}>Users List</button>
         );
       }
     }
-    return(<span></span>);
-    
-    
+    return (<span></span>);
+
+
   }
 
   render() {
